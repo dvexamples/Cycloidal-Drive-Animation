@@ -141,7 +141,7 @@ def update_inner_pinA(e,Rm, phi):
     
     x1 = (Rm+e)*np.cos(phi)+e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi)+e*np.sin(phi)
-    dotA.set_data(x1, y1)
+    dotA.set_data([x1], [y1])
 
 
 ##inner pinB:
@@ -162,7 +162,7 @@ def update_inner_pinB(e,Rm, phi):
     if cycloid_fig==2:      
         x1 = (Rm+e)*np.cos(phi+np.pi)-e*np.cos(phi)
         y1 = (Rm+e)*np.sin(phi+np.pi)-e*np.sin(phi)    
-    dotB.set_data(x1, y1)
+    dotB.set_data([x1], [y1])
 
 
 ##inner pinC:
@@ -175,7 +175,7 @@ def update_inner_pinC(e,Rm, phi):
     
     x1 = (Rm+e)*np.cos(phi-2*np.pi/3)-e*np.cos(phi+np.pi/3)
     y1 = (Rm+e)*np.sin(phi-2*np.pi/3)-e*np.sin(phi+np.pi/3)
-    dotC.set_data(x1, y1)
+    dotC.set_data([x1], [y1])
 
 
 ##ehypocycloidA:
@@ -200,7 +200,7 @@ def update_ehypocycloidA(e,n,D,d, phis):
         y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)  + e*np.sin(phis)
       
     ehypocycloidA.set_data(x,y)
-    edotA.set_data(x[0], y[0])
+    edotA.set_data([x[0]], [y[0]])
 
 
 ##ehypocycloidB:
@@ -235,7 +235,7 @@ def update_ehypocycloidB(e,n,D,d, phis):
             y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)  - e*np.sin(phis)
     
     ehypocycloidB.set_data(x,y)
-    edotB.set_data(x[0], y[0])
+    edotB.set_data([x[0]], [y[0]])
 
 
 ##ehypocycloidC:
