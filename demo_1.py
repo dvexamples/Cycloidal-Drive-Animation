@@ -46,7 +46,7 @@ d0, = ax.plot([0],[0],'k-')
 def drive_pin_update(r):
     x = r*np.sin(t)
     y = r*np.cos(t)
-    d0.set_data(x,y)
+    d0.set_data([x], [y])
 
 #inner circle:
 num_inner_circles = 10
@@ -67,7 +67,7 @@ dot, = ax.plot([0],[0], 'ro', ms=5)
 def update_inner_pin(e,Rm, phi):
     x = (Rm+e)*np.cos(t)+e*np.cos(phi)
     y = (Rm+e)*np.sin(t)+e*np.sin(phi)
-    inner_pin.set_data(x,y)
+    inner_pin.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi)+e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi)+e*np.sin(phi)
@@ -89,7 +89,7 @@ def update_ehypocycloid(e,n,D,d, phis):
 
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1))  + e*np.cos(phis)
     y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1))  + e*np.sin(phis)
-    ehypocycloid.set_data(x,y)
+    ehypocycloid.set_data([x], [y])
     edot.set_data([x[0]], [y[0]])
 
 axcolor = 'lightgoldenrodyellow'

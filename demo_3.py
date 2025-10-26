@@ -60,7 +60,7 @@ d0, = ax.plot([0],[0],'k-')
 def drive_pin_update(r):
     x = r*np.sin(t)
     y = r*np.cos(t)
-    d0.set_data(x,y)
+    d0.set_data([x], [y])
 
 #inner circleA:
 num_inner_circlesA = 10
@@ -109,11 +109,11 @@ dotA, = ax.plot([0],[0], 'ro', ms=5)
 def update_inner_pinA(e,Rm, phi):
     x = (Rm+e)*np.cos(t)+e*np.cos(phi)
     y = (Rm+e)*np.sin(t)+e*np.sin(phi)
-    inner_pinA.set_data(x,y)
+    inner_pinA.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi)+e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi)+e*np.sin(phi)
-    dotA.set_data(x1, y1)
+    dotA.set_data([x1], [y1])
 
 ##inner pinB:
 inner_pinB, = ax.plot([0], [0],'b-')
@@ -122,11 +122,11 @@ dotB, = ax.plot([0],[0], 'bo', ms=5)
 def update_inner_pinB(e,Rm, phi):
     x = (Rm+e)*np.cos(t)-e*np.cos(phi)
     y = (Rm+e)*np.sin(t)-e*np.sin(phi)
-    inner_pinB.set_data(x,y)
+    inner_pinB.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi+np.pi)-e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi+np.pi)-e*np.sin(phi)
-    dotB.set_data(x1, y1)
+    dotB.set_data([x1], [y1])
 
 ##ehypocycloidA:
 ehypocycloidA, = ax.plot([0],[0],'r-')
@@ -145,8 +145,8 @@ def update_ehypocycloidA1(e,n,D,d, phis):
 
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1))  + e*np.cos(phis)
     y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1))  + e*np.sin(phis)
-    ehypocycloidA.set_data(x,y)
-    edotA.set_data(x[0], y[0])
+    ehypocycloidA.set_data([x], [y])
+    edotA.set_data([x[0]], [y[0]])
 
 def update_ehypocycloidA2(e,n,D,d, phis):
     RD=D/2
@@ -161,7 +161,7 @@ def update_ehypocycloidA2(e,n,D,d, phis):
 
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))+ e*np.cos(phis)
     y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)  + e*np.sin(phis)
-    ehypocycloidA.set_data(x,y)
+    ehypocycloidA.set_data([x], [y])
 
     x1a = (rc+rm)*np.cos(phis/n)-e*np.cos((rc+rm)/rm*phis/n)
     y1a = (rc+rm)*np.sin(phis/n)-e*np.sin((rc+rm)/rm*phis/n)
@@ -171,7 +171,7 @@ def update_ehypocycloidA2(e,n,D,d, phis):
 
     x1 = (x1a + rd/np.sqrt(dx1a**2 + dy1a**2)*(-dy1a)) + e*np.cos(phis)
     y1 = (y1a + rd/np.sqrt(dx1a**2 + dy1a**2)*dx1a)  + e*np.sin(phis)
-    edotA.set_data(x1, y1)
+    edotA.set_data([x1], [y1])
 
 ##ehypocycloidB:
 ehypocycloidB, = ax.plot([0],[0],'b-')
@@ -190,8 +190,8 @@ def update_ehypocycloidB1(e,n,D,d, phis):
 
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1))  - e*np.cos(phis)
     y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1))  - e*np.sin(phis)
-    ehypocycloidB.set_data(x,y)
-    edotB.set_data(x[0], y[0])
+    ehypocycloidB.set_data([x], [y])
+    edotB.set_data([x[0]], [y[0]])
 
 def update_ehypocycloidB2(e,n,D,d, phis):
     RD=D/2
@@ -206,7 +206,7 @@ def update_ehypocycloidB2(e,n,D,d, phis):
 
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))  - e*np.cos(phis)
     y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)  - e*np.sin(phis)
-    ehypocycloidB.set_data(x,y)
+    ehypocycloidB.set_data([x], [y])
 
     x1a = (rc+rm)*np.cos(phis/n)+e*np.cos((rc+rm)/rm*phis/n)
     y1a = (rc+rm)*np.sin(phis/n)+e*np.sin((rc+rm)/rm*phis/n)
@@ -217,7 +217,7 @@ def update_ehypocycloidB2(e,n,D,d, phis):
     x1 = (x1a + rd/np.sqrt(dx1a**2 + dy1a**2)*(-dy1a)) - e*np.cos(phis)
     y1 = (y1a + rd/np.sqrt(dx1a**2 + dy1a**2)*dx1a)  - e*np.sin(phis)
 
-    edotB.set_data(x1, y1)
+    edotB.set_data([x1], [y1])
 
 
 axcolor = 'lightgoldenrodyellow'

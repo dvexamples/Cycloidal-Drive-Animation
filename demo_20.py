@@ -22,7 +22,7 @@ def update_inner_pin(Rm,rm,rc, phi):
     e = rm - rc
     #x = (rm)*np.cos(t)+e*np.cos(phi)
     #y = (rm)*np.sin(t)+e*np.sin(phi)
-    #inner_pin.set_data(x,y)
+    #inner_pin.set_data([x], [y])
     #x1 = (rc)*np.cos(t)*np.cos(phi) - (rc)*np.sin(t)*np.sin(phi)
     #y1 = (rc)*np.cos(t)*np.sin(phi) + (rc)*np.sin(t)*np.cos(phi)   
     if e >=0:
@@ -31,12 +31,12 @@ def update_inner_pin(Rm,rm,rc, phi):
     else:
         x = (Rm - e)*np.cos(t)+e*np.cos(phi)
         y = (Rm - e)*np.sin(t)+e*np.sin(phi)        
-    inner_pin.set_data(x,y)
+    inner_pin.set_data([x], [y])
     x1 = (Rm)*np.cos(t)*np.cos(phi) - (Rm)*np.sin(t)*np.sin(phi)
     y1 = (Rm)*np.cos(t)*np.sin(phi) + (Rm)*np.sin(t)*np.cos(phi)
 
-    d0.set_data(x1, y1)
-    dot.set_data(x1[0], y1[0])
+    d0.set_data([x1], [y1])
+    dot.set_data([x1[0]], [y1[0]])
 
 
 ##cycloidA:
@@ -46,7 +46,7 @@ def update_cycloidA(rm,rc,R):
     e = rm-rc
     x = e*np.cos(t)+R*np.cos((rm-rc)/rm*t)
     y = e*np.sin(t)+R*np.sin((rm-rc)/rm*t)
-    cycloidA.set_data(x, y)
+    cycloidA.set_data([x], [y])
 
 
 ##Reuleaux triangle:
@@ -87,7 +87,7 @@ def update_reuleaux_triangle(n,rm,rc,R,phis):
         y = xa*np.sin(i*2*np.pi/n + phis*((rm-rc)/rm)) +  ya*np.cos(i*2*np.pi/n + phis*((rm-rc)/rm)) + e*np.sin(phis)
         arcs[i].set_data(x,y)
         if i == 0:
-            dotR.set_data(x[0], y[0])
+            dotR.set_data([x[0]], [y[0]])
 
 
 axcolor = 'lightgoldenrodyellow'

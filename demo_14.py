@@ -37,7 +37,7 @@ def pin_update(e,n,d,D, phis):
         yd1 = (d/2*np.sin(phis) ) + e*np.sin(phis)
         x1 = xd1*np.cos(-phis/(n+1)) - yd1*np.sin(-phis/(n+1)) 
         y1 = xd1*np.sin(-phis/(n+1)) + yd1*np.cos(-phis/(n+1)) 
-        ddot.set_data(x1, y1)
+        ddot.set_data([x1], [y1])
 
 
 ## draw drive_pin
@@ -64,7 +64,7 @@ m1, = ax.plot([0], [0],'r-')
 def draw_circle(r):
     x = r*np.sin(t) 
     y = r*np.cos(t)
-    m1.set_data(x,y)
+    m1.set_data([x], [y])
 
 
 ##ehypocycloidA:
@@ -85,8 +85,8 @@ def update_ehypocycloidA(e,n,D,d, phis):
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1) -phis/(n+1) + np.pi/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1) -phis/(n+1) + np.pi/(n-1))  
     y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1) -phis/(n+1) + np.pi/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1) -phis/(n+1)+ np.pi/(n-1)) 
     
-    ehypocycloid.set_data(x,y)
-    edot.set_data(x[0], y[0])
+    ehypocycloid.set_data([x], [y])
+    edot.set_data([x[0]], [y[0]])
 
 
 ##ehypocycloidB:
@@ -107,8 +107,8 @@ def update_ehypocycloidB(e,n,D,d, phis):
     x = (xa - rd/np.sqrt(dxa**2 + dya**2)*(-dya))
     y = (ya - rd/np.sqrt(dxa**2 + dya**2)*dxa)
 
-    ehypocycloidB.set_data(x,y)
-    edotB.set_data(x[0], y[0])
+    ehypocycloidB.set_data([x], [y])
+    edotB.set_data([x[0]], [y[0]])
 
 
 axcolor = 'lightgoldenrodyellow'

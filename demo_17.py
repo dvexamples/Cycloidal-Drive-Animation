@@ -38,14 +38,14 @@ dot, = ax.plot([0],[0], 'ko', ms=5)
 def update_inner_pin(e,Rm, phi):
     x = (Rm+e)*np.cos(t)+e*np.cos(phi)
     y = (Rm+e)*np.sin(t)+e*np.sin(phi)
-    inner_pin.set_data(x,y)
+    inner_pin.set_data([x], [y])
 
 
     x1 = (Rm)*np.cos(t)*np.cos(phi) - (Rm)*np.sin(t)*np.sin(phi)
     y1 = (Rm)*np.cos(t)*np.sin(phi) + (Rm)*np.sin(t)*np.cos(phi)
     #self.line.set_data([0,x1],[0,y1])
-    d0.set_data(x1, y1)
-    dot.set_data(x1[0], y1[0])
+    d0.set_data([x1], [y1])
+    dot.set_data([x1[0]], [y1[0]])
 
 ## draw inner_pin
 num_inner_pins = 10
@@ -108,7 +108,7 @@ def update_ehypocycloidA(e,n,D,d, phis):
         x = xd1*np.cos((i)*np.pi/(num) - phis/(num))-yd1*np.sin((i)*np.pi/(num) - phis/(num)) + e*np.cos(phis)
         y = xd1*np.sin((i)*np.pi/(num) - phis/(num))+yd1*np.cos((i)*np.pi/(num) - phis/(num)) + e*np.sin(phis)
         if i == 0:
-            edotA.set_data(x[0], y[0])
+            edotA.set_data([x[0]], [y[0]])
         ehypocycloidA[i].set_data(x,y)
 
 axcolor = 'lightgoldenrodyellow'

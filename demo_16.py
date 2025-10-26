@@ -27,21 +27,21 @@ def draw_circle(e,D,d):
     # draw arc1
     x1 = r*np.cos(t1)
     y1 = r*np.sin(t1)
-    m1.set_data(x1,y1)
+    m1.set_data([x1], [y1])
 
     x2 = D - d + r*np.cos(t2)
     y2 = r*np.sin(t2)
-    m2.set_data(x2,y2)
+    m2.set_data([x2], [y2])
 
     # draw line1
     #x3 = [[0,D - d ]]
     #y3 = [[r,r]]
-    #line1.set_data(x3,y3)
+    #line1.set_data([x3], [y3])
 
     # draw line1
     #x4 = [[0,D - d ]]
     #y4 = [[-r,-r]]
-    #line2.set_data(x4,y4)
+    #line2.set_data([x4], [y4])
 
 
 ##ehypocycloidA:
@@ -64,8 +64,8 @@ def update_ehypocycloidA(e,n,D,d, phis):
     x = xd*np.cos(-phis/(n-1) )-yd*np.sin(-phis/(n-1) )   # + np.pi/(n-1)
     y = xd*np.sin(-phis/(n-1) )+yd*np.cos(-phis/(n-1) ) 
 
-    ehypocycloidA.set_data(x,y)
-    edot.set_data(x[0], y[0])
+    ehypocycloidA.set_data([x], [y])
+    edot.set_data([x[0]], [y[0]])
 
 ##ehypocycloidB:
 ehypocycloidB, = ax.plot([0],[0],'b-')
@@ -89,7 +89,7 @@ def update_ehypocycloidB(e,n,D,d, phis):
     if (n+1)%2 != 0:
         x = xd*np.cos(phis/(n-1) )-yd*np.sin(phis/(n-1) ) + D - d  # + np.pi/(n-1)
         y = xd*np.sin(phis/(n-1) )+yd*np.cos(phis/(n-1) ) 
-    ehypocycloidB.set_data(x,y)
+    ehypocycloidB.set_data([x], [y])
 
 
 axcolor = 'lightgoldenrodyellow'

@@ -51,19 +51,19 @@ def draw_circle(e,d,D,n,phis,num):
             x0 = r*np.sin(t) - e*np.cos(phis + phis/(N) +2*i*np.pi/num) 
             y0 = r*np.cos(t) - e*np.sin(phis + phis/(N) +2*i*np.pi/num)             
         if i == 0:
-            m1.set_data(x0,y0)
+            m1.set_data([x0], [y0])
         if i == 1:
-            m2.set_data(x0,y0)
+            m2.set_data([x0], [y0])
         if i == 2:
-            m3.set_data(x0,y0)          
+            m3.set_data([x0], [y0])          
 
     x = (r-e)*np.cos(t)
     y = (r-e)*np.sin(t)
-    inner_pin.set_data(x,y)
+    inner_pin.set_data([x], [y])
 
     x1 = (r-e)*np.cos(phis)
     y1 = (r-e)*np.sin(phis)
-    dot.set_data(x1, y1)
+    dot.set_data([x1], [y1])
 
 # draw inner cycloid drive circle
 p1, = ax.plot([0], [0],'b-')
@@ -100,11 +100,11 @@ def draw_cycloid_inner_circle(e,r,D,n,phis,num):
             x0 = x*np.cos(phis/(N)) - y*np.sin(phis/(N)) 
             y0 = x*np.sin(phis/(N)) + y*np.cos(phis/(N))           
         if i == 0:
-            p1.set_data(x0,y0)
+            p1.set_data([x0], [y0])
         if i == 1:
-            p2.set_data(x0,y0)
+            p2.set_data([x0], [y0])
         if i == 2:
-            p3.set_data(x0,y0)
+            p3.set_data([x0], [y0])
 
 
 ## draw output_pin
@@ -261,8 +261,8 @@ def update_ehypocycloidOut(e,n,D,d, phis):
                     x_out = x_out1*np.cos( np.pi/(N)) - y_out1*np.sin( np.pi/(N)) 
                     y_out = x_out1*np.sin( np.pi/(N)) + y_out1*np.cos( np.pi/(N))                      
 
-    ehypocycloidOut.set_data(x_out,y_out)
-    edotOut.set_data(x_out[0], y_out[0])
+    ehypocycloidOut.set_data([x_out], [y_out])
+    edotOut.set_data([x_out[0]], [y_out[0]])
 
 ##ehypocycloidA:
 ehypocycloidA1, = ax.plot([0],[0],'b-')
@@ -323,12 +323,12 @@ def update_ehypocycloidA(e,n,D,d, phis,num):
                 y = x1*np.sin(-phis/(n-1) + phis/(N) + 2*i*np.pi/num + np.pi/(n-1)) + y1*np.cos(-phis/(n-1) + phis/(N) + 2*i*np.pi/num + np.pi/(n-1)) + RD *np.sin(2*i*np.pi/num+ phis/(N) ) 
               
         if i == 0:
-            ehypocycloidA1.set_data(x,y)
-            edotA1.set_data(x[0], y[0])
+            ehypocycloidA1.set_data([x], [y])
+            edotA1.set_data([x[0]], [y[0]])
         if i == 1:
-            ehypocycloidA2.set_data(x,y)
+            ehypocycloidA2.set_data([x], [y])
         if i == 2:
-            ehypocycloidA3.set_data(x,y)  
+            ehypocycloidA3.set_data([x], [y])  
 
 axcolor = 'lightgoldenrodyellow'
 

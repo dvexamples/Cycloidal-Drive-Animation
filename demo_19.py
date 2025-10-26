@@ -28,11 +28,11 @@ def draw_circle(n1,D):
     # draw arc1
     x1 = (RD+rm)*np.cos(t1)
     y1 =  (RD+rm)*np.sin(t1)
-    m1.set_data(x1,y1)
+    m1.set_data([x1], [y1])
 
     x2 = D - 2*rm +  (RD+rm)*np.cos(t2)
     y2 =  (RD+rm)*np.sin(t2)
-    m2.set_data(x2,y2)
+    m2.set_data([x2], [y2])
 
 
 ##hypocycloidA:

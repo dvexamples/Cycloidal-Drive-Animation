@@ -55,7 +55,7 @@ d0, = ax.plot([0],[0],'k-')
 def drive_pin_update(r):
     x = r*np.sin(t)
     y = r*np.cos(t)
-    d0.set_data(x,y)
+    d0.set_data([x], [y])
 
 
 #inner circle:
@@ -80,11 +80,11 @@ dotA, = ax.plot([0],[0], 'ro', ms=5)
 def update_inner_pinA(e,Rm, phi):
     x = (Rm+e)*np.cos(t)+e*np.cos(phi)
     y = (Rm+e)*np.sin(t)+e*np.sin(phi)
-    inner_pinA.set_data(x,y)
+    inner_pinA.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi)+e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi)+e*np.sin(phi)
-    dotA.set_data(x1, y1)
+    dotA.set_data([x1], [y1])
 
 
 ##inner pinC:
@@ -93,7 +93,7 @@ inner_pinC, = ax.plot([0],[0],'r-.')
 def update_inner_pinC(e,D, N, phi):
     x = (D/2)*np.cos(t)*np.cos(-phi/(N)) - (D/2)*np.sin(t)*np.sin(-phi/(N)) +e*np.cos(phi)
     y = (D/2)*np.cos(t)*np.sin(-phi/(N)) + (D/2)*np.sin(t)*np.cos(-phi/(N)) +e*np.sin(phi)
-    inner_pinC.set_data(x,y)
+    inner_pinC.set_data([x], [y])
 
 
 ##ehypocycloidD:
@@ -112,7 +112,7 @@ def update_ehypocycloidD(e,n,D,d, phis):
 
     x = (xa - (rd)/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos( np.pi/(n+1)) - (ya - (rd)/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin( np.pi/(n+1)) 
     y = (xa - (rd)/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin( np.pi/(n+1)) + (ya - (rd)/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos( np.pi/(n+1))
-    ehypocycloidD.set_data(x,y)
+    ehypocycloidD.set_data([x], [y])
 
 
 ##ehypocycloid_Pin1:
@@ -137,8 +137,8 @@ def update_ehypocycloid_Pin1(e,n,D,d, phis):
     x = (xa1 )*np.cos(-phis/(n))-(ya1 )*np.sin(-phis/(n))  + e*np.cos(phis)  #旋转 + 自转
     y = (xa1 )*np.sin(-phis/(n))+(ya1 )*np.cos(-phis/(n))  + e*np.sin(phis)
     
-    ehypocycloid_Pin1.set_data(x,y)
-    edot_Pin1.set_data(x[0], y[0])
+    ehypocycloid_Pin1.set_data([x], [y])
+    edot_Pin1.set_data([x[0]], [y[0]])
 
 
 axcolor = 'lightgoldenrodyellow'

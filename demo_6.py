@@ -39,15 +39,15 @@ dot, = ax.plot([0],[0], 'ko', ms=5)
 def draw_circle(e,r,phis):
     x0 = r*np.sin(t) + 2*e*np.cos(phis)
     y0 = r*np.cos(t) + 2*e*np.sin(phis)
-    m1.set_data(x0,y0)
+    m1.set_data([x0], [y0])
 
     x = (r-2*e)*np.cos(t)
     y = (r-2*e)*np.sin(t)
-    inner_pin.set_data(x,y)
+    inner_pin.set_data([x], [y])
 
     x1 = (r-2*e)*np.cos(phis)
     y1 = (r-2*e)*np.sin(phis)
-    dot.set_data(x1, y1)
+    dot.set_data([x1], [y1])
 
 
 ##ehypocycloidA:
@@ -67,9 +67,9 @@ def update_ehypocycloidA(e,n,D,d, phis):
 
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-2*phis/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-2*phis/(n-1))  + 2*e*np.cos(phis) 
     y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-2*phis/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-2*phis/(n-1))  + 2*e*np.sin(phis)
-    ehypocycloidA.set_data(x,y)    
+    ehypocycloidA.set_data([x], [y])    
 
-    edotA.set_data(x[0], y[0])
+    edotA.set_data([x[0]], [y[0]])
 
 
 ##ehypocycloidE:
@@ -88,7 +88,7 @@ def update_ehypocycloidE(e,n,D,d, phis):
 
     x = (xa - rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-2*phis/(n-1))-(ya - rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-2*phis/(n-1))  + 2*e*np.cos(phis) 
     y = (xa - rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-2*phis/(n-1))+(ya - rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-2*phis/(n-1))  + 2*e*np.sin(phis)
-    ehypocycloidE.set_data(x,y)    
+    ehypocycloidE.set_data([x], [y])    
 
 
 ##ehypocycloidD:
@@ -109,8 +109,8 @@ def update_ehypocycloidD(e,n,D,d, phis):
     x = (xa - rd/np.sqrt(dxa**2 + dya**2)*(-dya))
     y = (ya - rd/np.sqrt(dxa**2 + dya**2)*dxa)
 
-    ehypocycloidD.set_data(x,y)
-    edotD.set_data(x[0], y[0])
+    ehypocycloidD.set_data([x], [y])
+    edotD.set_data([x[0]], [y[0]])
 
 
 ##ehypocycloidF:
@@ -130,7 +130,7 @@ def update_ehypocycloidF(e,n,D,d, phis):
     x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))
     y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)
 
-    ehypocycloidF.set_data(x,y)
+    ehypocycloidF.set_data([x], [y])
 
 axcolor = 'lightgoldenrodyellow'
 

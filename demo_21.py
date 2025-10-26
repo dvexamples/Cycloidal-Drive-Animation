@@ -38,7 +38,7 @@ d0, = ax.plot([0],[0],'r-', lw=2)
 def drive_pin_update(r):
     x = r*np.sin(t)
     y = r*np.cos(t)
-    d0.set_data(x,y)
+    d0.set_data([x], [y])
 
 
 ##inner pin:
@@ -48,11 +48,11 @@ dot, = ax.plot([0],[0], 'go', ms=5)
 def update_inner_pin(e,n,Rm, phi):
     x = (Rm+e)*np.cos(t)+e*np.cos(phi-phi/(n+1))
     y = (Rm+e)*np.sin(t)+e*np.sin(phi-phi/(n+1))
-    inner_pin.set_data(x,y)
+    inner_pin.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi-phi/(n+1))+e*np.cos(phi-phi/(n+1))
     y1 = (Rm+e)*np.sin(phi-phi/(n+1))+e*np.sin(phi-phi/(n+1))
-    dot.set_data(x1, y1)
+    dot.set_data([x1], [y1])
 
 ##hypocycloidA:
 hypocycloidA, = ax.plot([0],[0],'r-')
@@ -77,8 +77,8 @@ def update_hypocycloidA(e,n,D,d, phis):
     x1 = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1) -phis/(n+1) )-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1) -phis/(n+1) )  
     y1 = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1) -phis/(n+1) )+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1) -phis/(n+1)) 
     
-    hypocycloidA.set_data(x,y)
-    edotA.set_data(x1[0], y1[0])
+    hypocycloidA.set_data([x], [y])
+    edotA.set_data([x1[0]], [y1[0]])
 
 
 ##hypocycloidC:
@@ -103,7 +103,7 @@ def update_hypocycloidC(e,n,D,d, phis):
     x = (xd )*np.cos(-phis/(n+1))-(yd )*np.sin(-phis/(n+1))
     y = (xd )*np.sin(-phis/(n+1))+(yd )*np.cos(-phis/(n+1)) 
 
-    hypocycloidC.set_data(x,y)
+    hypocycloidC.set_data([x], [y])
 
 
 ##hypocycloidB:
@@ -125,8 +125,8 @@ def update_hypocycloidB(e,n,D,d, phis):
     x = xa - rd/np.sqrt(dxa**2 + dya**2)*(-dya)
     y = ya - rd/np.sqrt(dxa**2 + dya**2)*dxa
 
-    hypocycloidB.set_data(x,y)
-    edotB.set_data(x[0], y[0])
+    hypocycloidB.set_data([x], [y])
+    edotB.set_data([x[0]], [y[0]])
 
 
 ##hypocycloidD:
@@ -151,7 +151,7 @@ def update_hypocycloidD(e,n,D,d, phis):
     x = (xd )*np.cos(-phis/(n+1))-(yd )*np.sin(-phis/(n+1)) 
     y = (xd )*np.sin(-phis/(n+1))+(yd )*np.cos(-phis/(n+1))  
 
-    hypocycloidD.set_data(x,y)
+    hypocycloidD.set_data([x], [y])
 
 
 axcolor = 'lightgoldenrodyellow'

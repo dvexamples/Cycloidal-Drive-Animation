@@ -197,7 +197,7 @@ def inner_pin_update(n,N,rd,Rd,phi):
         inner_pins[i].set_data(x, y)
 
 def drive_pin_update(r):
-    d0.set_data(r*np.sin(t), r*np.cos(t))
+    d0.set_data([r*np.sin(t)], [r*np.cos(t]))
 
 def update_inner_circle(e,n,N,rd,Rd,phi):
     for i in range(n):
@@ -222,7 +222,7 @@ def update_ehypocycloid(e,n,D,d,phi):
     norm = np.sqrt(dxa**2 + dya**2)
     x = (xa - rd_half*dya/norm)*np.cos(-phi/(n-1)) - (ya + rd_half*dxa/norm)*np.sin(-phi/(n-1)) + e*np.cos(phi)
     y = (xa - rd_half*dya/norm)*np.sin(-phi/(n-1)) + (ya + rd_half*dxa/norm)*np.cos(-phi/(n-1)) + e*np.sin(phi)
-    ehypocycloid.set_data(x, y)
+    ehypocycloid.set_data([x], [y])
     edot.set_data([x[0]], [y[0]])
 
 # ========== Animation Function ==========

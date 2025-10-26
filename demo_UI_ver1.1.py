@@ -61,7 +61,7 @@ d0, = ax.plot([0],[0],'k-', lw=2)
 def drive_pin_update(r):
     x = r*np.sin(t)
     y = r*np.cos(t)
-    d0.set_data(x,y)
+    d0.set_data([x], [y])
 
 
 #inner circleA:
@@ -137,11 +137,11 @@ dotA, = ax.plot([0],[0], 'ro', ms=5)
 def update_inner_pinA(e,Rm, phi):
     x = (Rm+e)*np.cos(t)+e*np.cos(phi)
     y = (Rm+e)*np.sin(t)+e*np.sin(phi)
-    inner_pinA.set_data(x,y)
+    inner_pinA.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi)+e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi)+e*np.sin(phi)
-    dotA.set_data(x1, y1)
+    dotA.set_data([x1], [y1])
 
 ##inner pinB:
 inner_pinB, = ax.plot([0],[0],'b-')
@@ -154,14 +154,14 @@ def update_inner_pinB(e,Rm, phi):
     if cycloid_fig==2:  
         x = (Rm+e)*np.cos(t)-e*np.cos(phi)
         y = (Rm+e)*np.sin(t)-e*np.sin(phi)        
-    inner_pinB.set_data(x,y)
+    inner_pinB.set_data([x], [y])
     if cycloid_fig==3:      
         x1 = (Rm+e)*np.cos(phi+2*np.pi/3)-e*np.cos(phi-np.pi/3)
         y1 = (Rm+e)*np.sin(phi+2*np.pi/3)-e*np.sin(phi-np.pi/3)
     if cycloid_fig==2:      
         x1 = (Rm+e)*np.cos(phi+np.pi)-e*np.cos(phi)
         y1 = (Rm+e)*np.sin(phi+np.pi)-e*np.sin(phi)    
-    dotB.set_data(x1, y1)
+    dotB.set_data([x1], [y1])
 
 
 ##inner pinC:
@@ -170,11 +170,11 @@ dotC, = ax.plot([0],[0], 'go', ms=5)
 def update_inner_pinC(e,Rm, phi):
     x = (Rm+e)*np.cos(t)-e*np.cos(phi+np.pi/3)
     y = (Rm+e)*np.sin(t)-e*np.sin(phi+np.pi/3)
-    inner_pinC.set_data(x,y)
+    inner_pinC.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi-2*np.pi/3)-e*np.cos(phi+np.pi/3)
     y1 = (Rm+e)*np.sin(phi-2*np.pi/3)-e*np.sin(phi+np.pi/3)
-    dotC.set_data(x1, y1)
+    dotC.set_data([x1], [y1])
 
 
 ##ehypocycloidA:
@@ -196,8 +196,8 @@ def update_ehypocycloidA(lamuda,e,n,D,d, phis):
             dya = (rc+rm)*(np.cos(t)-(e/rm)*np.cos((rc+rm)/rm*t))        
             x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1))  + e*np.cos(phis)
             y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1))  + e*np.sin(phis)
-            ehypocycloidA.set_data(x,y)
-            edotA.set_data(x[0], y[0])   
+            ehypocycloidA.set_data([x], [y])
+            edotA.set_data([x[0]], [y[0]])   
         if curve_fig == 1:
             #lamuda = 0.9
             RD=D/2
@@ -209,8 +209,8 @@ def update_ehypocycloidA(lamuda,e,n,D,d, phis):
             
             x = (xa)*np.cos(-phis/(n-1))-(ya)*np.sin(-phis/(n-1))  + e*np.cos(phis)
             y = (xa)*np.sin(-phis/(n-1))+(ya)*np.cos(-phis/(n-1))  + e*np.sin(phis)
-            ehypocycloidA.set_data(x,y)
-            edotA.set_data(x[0], y[0])  
+            ehypocycloidA.set_data([x], [y])
+            edotA.set_data([x[0]], [y[0]])  
 
     if mode_fig == 0:
         if curve_fig == 0:
@@ -226,8 +226,8 @@ def update_ehypocycloidA(lamuda,e,n,D,d, phis):
 
             x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))  + e*np.cos(phis)
             y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)  + e*np.sin(phis)
-            ehypocycloidA.set_data(x,y)
-            edotA.set_data(x[0], y[0]) 
+            ehypocycloidA.set_data([x], [y])
+            edotA.set_data([x[0]], [y[0]]) 
         if curve_fig == 1:
             #lamuda = 0.9
             RD=D/2
@@ -239,8 +239,8 @@ def update_ehypocycloidA(lamuda,e,n,D,d, phis):
 
             x = (xa)  + e*np.cos(phis)
             y = (ya)  + e*np.sin(phis)
-            ehypocycloidA.set_data(x,y)
-            edotA.set_data(x[0], y[0])     
+            ehypocycloidA.set_data([x], [y])
+            edotA.set_data([x[0]], [y[0]])     
 
 
 ##ehypocycloidB:
@@ -265,8 +265,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
                 dya = (rc+rm)*(np.cos(t)+(e/rm)*np.cos((rc+rm)/rm*t))                
                 x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1) + np.pi/3/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1) + np.pi/3/(n-1))  - e*np.cos(phis-np.pi/3)
                 y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1) + np.pi/3/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1) + np.pi/3/(n-1))  - e*np.sin(phis-np.pi/3)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])  
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])  
 
             if curve_fig == 1:
                 #lamuda = 0.9
@@ -281,8 +281,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa)*np.cos(-phis/(n-1) + np.pi/3/(n-1) + np.pi/(n-1))-(ya)*np.sin(-phis/(n-1) + np.pi/3/(n-1) + np.pi/(n-1))  - e*np.cos(phis-np.pi/3)
                 y = (xa)*np.sin(-phis/(n-1) + np.pi/3/(n-1) + np.pi/(n-1))+(ya)*np.cos(-phis/(n-1) + np.pi/3/(n-1) + np.pi/(n-1))  - e*np.sin(phis-np.pi/3)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])                  
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])                  
 
         if cycloid_fig == 2:
             if curve_fig == 0:
@@ -298,8 +298,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1) )-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1))  - e*np.cos(phis)
                 y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1) )+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1))  - e*np.sin(phis)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])       
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])       
     
             if curve_fig == 1:
                 #lamuda = 0.9
@@ -315,8 +315,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa)*np.cos(-phis/(n-1) + np.pi/(n-1))-(ya)*np.sin(-phis/(n-1) + np.pi/(n-1))  - e*np.cos(phis)
                 y = (xa)*np.sin(-phis/(n-1) + np.pi/(n-1) )+(ya)*np.cos(-phis/(n-1) + np.pi/(n-1))  - e*np.sin(phis)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])    
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])    
     if mode_fig == 0:
         if cycloid_fig == 3:   
             if curve_fig == 0:
@@ -332,8 +332,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos( np.pi/3/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin( np.pi/3/(n-1))  - e*np.cos(phis-np.pi/3)
                 y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin( np.pi/3/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos( np.pi/3/(n-1))  - e*np.sin(phis-np.pi/3)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])   
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])   
             if curve_fig == 1:
                 #lamuda = 0.9
                 RD=D/2
@@ -346,8 +346,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa)*np.cos( np.pi/3/(n-1) + np.pi/(n-1))-(ya)*np.sin( np.pi/3/(n-1) + np.pi/(n-1))  - e*np.cos(phis-np.pi/3)
                 y = (xa)*np.sin( np.pi/3/(n-1) + np.pi/(n-1))+(ya)*np.cos( np.pi/3/(n-1) + np.pi/(n-1))  - e*np.sin(phis-np.pi/3)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])                         
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])                         
         if cycloid_fig == 2:   
             if curve_fig == 0:
                 RD=D/2
@@ -364,8 +364,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))  - e*np.cos(phis)
                 y = (ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)  - e*np.sin(phis)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])           
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])           
     
             if curve_fig == 1:
                 #lamuda = 0.9
@@ -378,8 +378,8 @@ def update_ehypocycloidB(lamuda,e,n,D,d, phis):
 
                 x = (xa)*np.cos(np.pi/(n-1))-(ya)*np.sin(np.pi/(n-1))  - e*np.cos(phis)
                 y = (xa)*np.sin(np.pi/(n-1))+(ya)*np.cos(np.pi/(n-1))  - e*np.sin(phis)
-                ehypocycloidB.set_data(x,y)
-                edotB.set_data(x[0], y[0])  
+                ehypocycloidB.set_data([x], [y])
+                edotB.set_data([x[0]], [y[0]])  
 
 
 ##ehypocycloidC:
@@ -403,8 +403,8 @@ def update_ehypocycloidC(lamuda,e,n,D,d, phis):
             x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos(-phis/(n-1) - np.pi/3/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin(-phis/(n-1) - np.pi/3/(n-1))  - e*np.cos(phis+np.pi/3)
             y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin(-phis/(n-1) - np.pi/3/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos(-phis/(n-1) - np.pi/3/(n-1))  - e*np.sin(phis+np.pi/3)
             
-            ehypocycloidC.set_data(x,y)
-            edotC.set_data(x[0], y[0])   
+            ehypocycloidC.set_data([x], [y])
+            edotC.set_data([x[0]], [y[0]])   
 
         if curve_fig == 1:
             #lamuda = 0.9
@@ -420,8 +420,8 @@ def update_ehypocycloidC(lamuda,e,n,D,d, phis):
             x = (xa)*np.cos(-phis/(n-1) - np.pi/3/(n-1) + np.pi/(n-1))-(ya)*np.sin(-phis/(n-1) - np.pi/3/(n-1) + np.pi/(n-1))  - e*np.cos(phis+np.pi/3)
             y = (xa)*np.sin(-phis/(n-1) - np.pi/3/(n-1) + np.pi/(n-1))+(ya)*np.cos(-phis/(n-1) - np.pi/3/(n-1) + np.pi/(n-1))  - e*np.sin(phis+np.pi/3)
             
-            ehypocycloidC.set_data(x,y)
-            edotC.set_data(x[0], y[0]) 
+            ehypocycloidC.set_data([x], [y])
+            edotC.set_data([x[0]], [y[0]]) 
 
     if mode_fig == 0:  
         if curve_fig == 0:
@@ -437,8 +437,8 @@ def update_ehypocycloidC(lamuda,e,n,D,d, phis):
             x = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.cos( - np.pi/3/(n-1))-(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.sin( - np.pi/3/(n-1))  - e*np.cos(phis+np.pi/3)
             y = (xa + rd/np.sqrt(dxa**2 + dya**2)*(-dya))*np.sin( - np.pi/3/(n-1))+(ya + rd/np.sqrt(dxa**2 + dya**2)*dxa)*np.cos( - np.pi/3/(n-1))  - e*np.sin(phis+np.pi/3)
      
-            ehypocycloidC.set_data(x,y)
-            edotC.set_data(x[0], y[0])   
+            ehypocycloidC.set_data([x], [y])
+            edotC.set_data([x[0]], [y[0]])   
         if curve_fig == 1:
             #lamuda = 0.9
             RD=D/2
@@ -452,8 +452,8 @@ def update_ehypocycloidC(lamuda,e,n,D,d, phis):
             x = (xa)*np.cos( - np.pi/3/(n-1) + np.pi/(n-1))-(ya)*np.sin( - np.pi/3/(n-1) + np.pi/(n-1))  - e*np.cos(phis+np.pi/3)
             y = (xa)*np.sin( - np.pi/3/(n-1) + np.pi/(n-1))+(ya)*np.cos( - np.pi/3/(n-1) + np.pi/(n-1))  - e*np.sin(phis+np.pi/3)
      
-            ehypocycloidC.set_data(x,y)
-            edotC.set_data(x[0], y[0])  
+            ehypocycloidC.set_data([x], [y])
+            edotC.set_data([x[0]], [y[0]])  
 
 
 ##ehypocycloid_Pin:
@@ -514,8 +514,8 @@ def update_ehypocycloid_Pin(lamuda,e,n,D,d, phis):
             x = (xa)*np.cos(phis/(n))-(ya)*np.sin(phis/(n)) 
             y = (xa)*np.sin(phis/(n))+(ya)*np.cos(phis/(n))    
     
-    ehypocycloid_Pin.set_data(x,y)
-    edot_Pin.set_data(x[0], y[0])
+    ehypocycloid_Pin.set_data([x], [y])
+    edot_Pin.set_data([x[0]], [y[0]])
 
 
 axcolor = 'lightgoldenrodyellow'

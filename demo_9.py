@@ -24,15 +24,15 @@ dotD, = ax.plot([0],[0], 'bo', ms=5)
 def update_inner_pinD(e,Rm, phi):
     x0 = Rm*np.sin(t)
     y0 = Rm*np.cos(t)
-    d0.set_data(x0,y0)
+    d0.set_data([x0], [y0])
 
     x = (Rm+e)*np.cos(t)-e*np.cos(phi)
     y = (Rm+e)*np.sin(t)-e*np.sin(phi)
-    inner_pinD.set_data(x,y)
+    inner_pinD.set_data([x], [y])
     
     x1 = (Rm+e)*np.cos(phi+np.pi)-e*np.cos(phi)
     y1 = (Rm+e)*np.sin(phi+np.pi)-e*np.sin(phi)
-    dotD.set_data(x1, y1)
+    dotD.set_data([x1], [y1])
 
 
 ##hypocycloidA:
@@ -50,8 +50,8 @@ def update_hypocycloidA(lamuda,e,n,D,d, phis):
 
     x = (xa )*np.cos(-phis/(n-1) + np.pi/(n-1))-(ya )*np.sin(-phis/(n-1) + np.pi/(n-1))  - e*np.cos(phis)
     y = (xa )*np.sin(-phis/(n-1) + np.pi/(n-1))+(ya )*np.cos(-phis/(n-1) + np.pi/(n-1))  - e*np.sin(phis)
-    hypocycloidA.set_data(x,y)
-    edotA.set_data(x[0], y[0])
+    hypocycloidA.set_data([x], [y])
+    edotA.set_data([x[0]], [y[0]])
 
 ##hypocycloidC:
 hypocycloidC, = ax.plot([0],[0],'g-')
@@ -64,7 +64,7 @@ def update_hypocycloidC(lamuda,e,n,D,d, phis):
     rm = (RD/n)
     xa = (rc+rm)*np.cos(t)-e*lamuda*np.cos((rc+rm)/rm*t)-rd*(np.cos(t) - lamuda*np.cos((rc+rm)/rm*t))/np.sqrt(1 + lamuda**2 - 2*lamuda*np.cos(rc/rm*t)) 
     ya = (rc+rm)*np.sin(t)-e*lamuda*np.sin((rc+rm)/rm*t)-rd*(np.sin(t) - lamuda*np.sin((rc+rm)/rm*t))/np.sqrt(1 + lamuda**2 - 2*lamuda*np.cos(rc/rm*t)) 
-    hypocycloidC.set_data(xa,ya)
+    hypocycloidC.set_data([xa], [ya])
 
 
 axcolor = 'lightgoldenrodyellow'

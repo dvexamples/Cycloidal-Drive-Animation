@@ -27,15 +27,15 @@ def update_inner_pinD(n1,D,Rm ,phi):
     rm = (RD/(n))   
     x0 = Rm*np.sin(t)
     y0 = Rm*np.cos(t)
-    d0.set_data(x0,y0)
+    d0.set_data([x0], [y0])
 
     x = (Rm+2*rm)*np.cos(t)+2*rm*np.cos(phi)
     y = (Rm+2*rm)*np.sin(t)+2*rm*np.sin(phi)
-    inner_pinD.set_data(x,y)
+    inner_pinD.set_data([x], [y])
     
     x1 = (Rm+2*rm)*np.cos(phi+np.pi)+2*rm*np.cos(phi)
     y1 = (Rm+2*rm)*np.sin(phi+np.pi)+2*rm*np.sin(phi)
-    dotD.set_data(x1, y1)
+    dotD.set_data([x1], [y1])
 
 
 ##hypocycloidA:
